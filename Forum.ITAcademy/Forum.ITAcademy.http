@@ -1,0 +1,6 @@
+@Forum.ITAcademy_HostAddress = http://localhost:5167
+
+GET {{Forum.ITAcademy_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
