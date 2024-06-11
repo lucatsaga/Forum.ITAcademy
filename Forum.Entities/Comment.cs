@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Forum.Entities
 {
+    /*
     public class Comment : BaseEntity
     {
         
@@ -17,6 +18,7 @@ namespace Forum.Entities
 
         [Required]
         public int TopicId { get; set; }
+
         [ForeignKey(nameof(TopicId))]
         public Topic Topic { get; set; }
 
@@ -31,5 +33,23 @@ namespace Forum.Entities
         [Required]
         [DataType(DataType.Date)]
         public DateTime UpdatedAt { get; set; }
+    }
+    */
+
+    public class Comment : BaseEntity
+    {
+        
+        [Required]
+        [MaxLength(300)]
+        public string Content { get; set; }
+        
+        [Required]
+        public User Author { get; set; }
+        [Required]
+        public int AuthorId { get; set; }
+        [Required]
+        public Topic Topic { get; set; }
+        [Required]
+        public int TopicId { get; set; }
     }
 }

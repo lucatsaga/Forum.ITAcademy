@@ -7,10 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="IUserService.cs" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Forum.Contracts\Forum.Contracts.csproj" />
+    <ProjectReference Include="..\Forum.Data\Forum.Data.csproj" />
     <ProjectReference Include="..\Forum.Entities\Forum.Entities.csproj" />
     <ProjectReference Include="..\Forum.Models\Forum.Models.csproj" />
   </ItemGroup>

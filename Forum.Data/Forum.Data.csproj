@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Forum.Entities\Forum.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

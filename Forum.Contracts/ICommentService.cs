@@ -1,4 +1,5 @@
 ﻿using Forum.Entities;
+using Forum.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,11 @@ namespace Forum.Contracts
 {
     public interface ICommentService
     {
-        Task<Comment> GetCommentByIdAsync(int id);
-        Task<IEnumerable<Comment>> GetAllCommentsAsync();
-        Task AddCommentAsync(Comment comment);
-        Task UpdateCommentAsync(Comment comment);
+        Task AddCommentAsync(CommentForCreatingDto model);
         Task DeleteCommentAsync(int id);
+        Task<List<CommentDto>> GetAllCommentsAsync();
+        Task<CommentDto> GetCommentByIdAsync(int id);
+        Task UpdateCommentAsync(CommentForUpdatingDto model);
+        //Task GetCommentsForTopicAsync (int topicId);
     }
 }

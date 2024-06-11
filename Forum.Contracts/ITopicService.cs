@@ -1,4 +1,5 @@
 ﻿using Forum.Entities;
+using Forum.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace Forum.Contracts
 {
     public interface ITopicService
     {
-        Task<Topic> GetTopicByIdAsync(int id);
-        Task<IEnumerable<Topic>> GetAllTopicsAsync();
-        Task AddTopicAsync(Topic topic);
-        Task UpdateTopicAsync(Topic topic);
+        Task AddTopicAsync(TopicForCreatingDto model);
         Task DeleteTopicAsync(int id);
+        Task<List<TopicDto>> GetAllTopicsAsync();
+        Task<TopicDto> GetTopicByIdAsync(int id);
+        Task UpdateTopicAsync(TopicForUpdatingDto model);
     }
 }

@@ -6,7 +6,8 @@ builder.AddDatabaseContext();
 builder.AddControllers();
 builder.AddEndpointsApiExplorer();
 builder.AddSwagger();
-
+builder.AddAutoMapper();
+builder.AddApplicationServices();
 
 var app = builder.Build();
 

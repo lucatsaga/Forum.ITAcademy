@@ -1,4 +1,5 @@
 ﻿using Forum.Entities;
+using Forum.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace Forum.Contracts
 {
     public interface IUserService
     {
-        Task<User> GetUserByIdAsync(int id);
-        Task<IEnumerable<User>> GetAllUsersAsync();
-        Task AddUserAsync(User user);
-        Task UpdateUserAsync(User user);
+        Task AddUserAsync(User model);
         Task DeleteUserAsync(int id);
+        Task<List<UserDto>> GetAllUsersAsync();
+        Task<UserDto> GetUserByIdAsync(int id);
+        Task UpdateUserAsync(UserForUpdateDto model);
     }
 }

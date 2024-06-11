@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+  
 namespace Forum.Data
 {
     public static class DataSeeder
     {
+     
+        /*
         public static void SeedUsers(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
-                    Id = 1,
+                    Id = 10,
                     CreatedAt = DateTime.Now,
                     UserName = "UserN1",
                     Email = "UserN1@gmail.com",
@@ -28,7 +31,7 @@ namespace Forum.Data
                 },
                 new User
                 {
-                    Id = 2,
+                    Id = 11,
                     CreatedAt = DateTime.Now,
                     UserName = "UserN2",
                     Email = "UserN2@gmail.com",
@@ -38,7 +41,7 @@ namespace Forum.Data
                 },
                 new User
                 {
-                    Id = 3,
+                    Id = 12,
                     CreatedAt = DateTime.Now,
                     UserName = "UserN3",
                     Email = "UserN3@gmail.com",
@@ -48,7 +51,7 @@ namespace Forum.Data
                 },
                 new User
                 {
-                    Id = 4,
+                    Id = 13,
                     CreatedAt = DateTime.Now,
                     UserName = "UserN4",
                     Email = "UserN4@gmail.com",
@@ -56,103 +59,108 @@ namespace Forum.Data
                     IsBanned = false,
                     IsAdmin = false
                 });
-                
+
         }
+        
 
 
 
+
+
+
+        /*
         public static void SeedTopics(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Topic>().HasData(
                 new Topic
                 {
-                    Id = 1,
+                    Id = 21,
                     CreatedAt = DateTime.Now,
-                    TopicName = "TopicN1",
+                    TopicName = "TopicN4",
+                    AuthorId = 2,
+                   = DateTime.UtcNow,
+                    State = State.Pending,
+                    Status = Status.Active
+
+                },
+                new Topic
+                {
+                    Id = 22,
+                    CreatedAt = DateTime.Now,
+                    TopicName = "TopicN4",
                     AuthorId = 2,
                     UpdatedAt = DateTime.UtcNow,
-                   
-                },
-                new Topic
-                {
-                    Id = 2,
-                    CreatedAt = DateTime.Now,
-                    TopicName = "TopicN2",
-                    AuthorId = 4,
-                    UpdatedAt = new DateTime(2024, 6, 7, 14, 30, 0)
+                    State = State.Pending,
+                    Status = Status.Active
 
                 },
                 new Topic
                 {
-                    Id = 3,
+                    Id = 23,
                     CreatedAt = DateTime.Now,
-                    TopicName = "TopicN3",
-                    AuthorId = 1,
-                    UpdatedAt = new DateTime(2024, 6, 2, 14, 30, 0)
+                    TopicName = "TopicN4",
+                    AuthorId = 2,
+                    UpdatedAt = DateTime.UtcNow,
+                    State = State.Pending,
+                    Status = Status.Active
 
-                },
-               new Topic
-               {
-                   Id = 4,
-                   CreatedAt = DateTime.Now,
-                   TopicName = "TopicN4",
-                   AuthorId = 2,
-                   UpdatedAt = DateTime.UtcNow,
-
-               });
-
+                });
+        
         }
+
 
         public static void SeedComments(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Comment>().HasData(
                 new Comment
                 {
-                    Id = 1,
-                    CreatedAt = DateTime.Now,
-                    Content = "Esaa Chemi KomentariN1",
-                    TopicId = 1,
-                    AuthorId = 2,
-                    UpdatedAt = new DateTime(2024, 6, 2, 14, 30, 0)
-
+                    Id = 123,
+                    Content = "123",
+                    TopicId = 20,
+                    AuthorId = 1,
+                    UpdatedAt = DateTime.UtcNow,
 
                 },
                 new Comment
                 {
-                    Id = 2,
-                    CreatedAt = DateTime.Now,
-                    Content = "Esaa Chemi KomentariN2",
-                    TopicId = 2,
+                    Id = 142,
+                    Content = "142",
+                    TopicId = 21,
                     AuthorId = 1,
-                    UpdatedAt = new DateTime(2024, 3, 2, 14, 30, 0)
+                    UpdatedAt = DateTime.UtcNow,
 
 
                 },
-                
+
                  new Comment
                  {
-                     Id = 3,
-                     CreatedAt = DateTime.Now,
-                     Content = "Esaa Chemi KomentariN3",
-                     TopicId = 3,
-                     AuthorId = 3,
-                     UpdatedAt = new DateTime(2023, 6, 2, 14, 30, 0)
-
+                     Id = 141,
+                     Content = "142",
+                     TopicId = 22,
+                     AuthorId = 1,
+                     UpdatedAt = DateTime.UtcNow,
 
                  },
                 new Comment
                 {
-                    Id = 4,
-                    CreatedAt = DateTime.Now,
-                    Content = "Esaa Chemi KomentariN4",
-                    TopicId = 2,
-                    AuthorId = 4,
-                    UpdatedAt = new DateTime(2023, 6, 2, 14, 30, 0)
-
+                    Id = 144,
+                    Content = "142",
+                    TopicId = 23,
+                    AuthorId = 1,
+                    UpdatedAt = DateTime.UtcNow,
 
                 });
-
         }
+        */
     }
 }
+
+                
+                 
+        
+    
+
+        
+    
+
 

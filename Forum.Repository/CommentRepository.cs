@@ -19,6 +19,12 @@ namespace Forum.Repository
             return await _context.Comments.FindAsync(id);
         }
 
+        /*
+        public async Task<IEnumerable<Comment>> GetCommentsForTopicAsync(int topicId)
+        {
+            return await _context.Comments.Where(c => c.TopicId == topicId).ToListAsync();
+        }
+        */
         public async Task<IEnumerable<Comment>> GetAllAsync()
         {
             return await _context.Comments.ToListAsync();

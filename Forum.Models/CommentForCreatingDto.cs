@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 
 namespace Forum.Models
 {
-    public class Comment
+    public class CommentForCreatingDto
     {
-       
-        public int Id { get; set; }
-        public int TopicId { get; set; }
-        public string Content { get; set; }
-        public string Author { get; set; }
-        public DateTime CreatedDate { get; set; }
 
+        [Required]
+        [MaxLength(300)]
+        public string Content { get; set; }
+
+        [Required]
+        public int TopicId { get; set; }
+
+        [Required]
+        public int AuthorId { get; set; }
     }
 }

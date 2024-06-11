@@ -39,9 +39,8 @@ namespace Forum.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TopicName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     AuthorId = table.Column<int>(type: "int", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    State = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -52,7 +51,7 @@ namespace Forum.Data.Migrations
                         column: x => x.AuthorId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -62,9 +61,8 @@ namespace Forum.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Content = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
-                    TopicId = table.Column<int>(type: "int", nullable: false),
                     AuthorId = table.Column<int>(type: "int", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TopicId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -81,7 +79,7 @@ namespace Forum.Data.Migrations
                         column: x => x.AuthorId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -89,32 +87,43 @@ namespace Forum.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "Email", "IsAdmin", "IsBanned", "Password", "UserName" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(398), "UserN1@gmail.com", false, false, "123123", "UserN1" },
-                    { 2, new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(409), "UserN2@gmail.com", false, false, "123123", "UserN2" },
-                    { 3, new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(412), "UserN3@gmail.com", false, false, "123123", "UserN3" },
-                    { 4, new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(414), "UserN4@gmail.com", false, false, "123123", "UserN4" }
+                    { 1, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1216), "User1@gmail.com", false, false, "A123", "User1" },
+                    { 2, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1222), "User2@gmail.com", false, false, "A123", "User2" },
+                    { 3, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1224), "User3@gmail.com", false, false, "A123", "User3" },
+                    { 4, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1226), "User4@gmail.com", false, false, "A123", "User4" },
+                    { 5, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1228), "User5@gmail.com", false, false, "A123", "User5" },
+                    { 6, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1229), "User6@gmail.com", false, false, "A123", "User6" },
+                    { 7, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1231), "User7@gmail.com", false, false, "A123", "User7" },
+                    { 8, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1233), "User8@gmail.com", false, false, "A123", "User8" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Topics",
-                columns: new[] { "Id", "AuthorId", "CreatedAt", "State", "Status", "TopicName", "UpdatedAt" },
+                columns: new[] { "Id", "AuthorId", "CreatedAt", "State", "Status", "TopicName" },
                 values: new object[,]
                 {
-                    { 1, 2, new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(543), 1, 1, "TopicN1", new DateTime(2024, 6, 6, 23, 24, 48, 616, DateTimeKind.Utc).AddTicks(544) },
-                    { 2, 4, new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(546), 1, 1, "TopicN2", new DateTime(2024, 6, 7, 14, 30, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, 1, new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(551), 1, 1, "TopicN3", new DateTime(2024, 6, 2, 14, 30, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, 2, new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(553), 1, 1, "TopicN4", new DateTime(2024, 6, 6, 23, 24, 48, 616, DateTimeKind.Utc).AddTicks(553) }
+                    { 1, 1, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1354), "Pending", "Active", "TopicN1" },
+                    { 2, 1, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1356), "Pending", "Active", "TopicN2" },
+                    { 3, 2, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1357), "Pending", "Active", "TopicN3" },
+                    { 4, 2, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1358), "Pending", "Active", "TopicN4" },
+                    { 5, 3, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1360), "Pending", "Active", "TopicN5" },
+                    { 6, 4, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1361), "Pending", "Active", "TopicN6" },
+                    { 7, 1, new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1362), "Pending", "Active", "TopicN7" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Comments",
-                columns: new[] { "Id", "AuthorId", "Content", "CreatedAt", "TopicId", "UpdatedAt" },
+                columns: new[] { "Id", "AuthorId", "Content", "CreatedAt", "TopicId" },
                 values: new object[,]
                 {
-                    { 1, 2, "Esaa Chemi KomentariN1", new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(573), 1, new DateTime(2024, 6, 2, 14, 30, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, 1, "Esaa Chemi KomentariN2", new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(575), 2, new DateTime(2024, 3, 2, 14, 30, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, 3, "Esaa Chemi KomentariN3", new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(577), 3, new DateTime(2023, 6, 2, 14, 30, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, 4, "Esaa Chemi KomentariN4", new DateTime(2024, 6, 7, 3, 24, 48, 616, DateTimeKind.Local).AddTicks(579), 2, new DateTime(2023, 6, 2, 14, 30, 0, 0, DateTimeKind.Unspecified) }
+                    { 1, 1, "Ikomentari", new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1387), 1 },
+                    { 2, 1, "IIkomentari", new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1389), 1 },
+                    { 3, 1, "IIIkomentari", new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1390), 2 },
+                    { 4, 1, "IVkomentari", new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1392), 1 },
+                    { 5, 1, "Vkomentari", new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1393), 3 },
+                    { 6, 1, "VIKomentari", new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1395), 3 },
+                    { 7, 2, "VIIKomentari", new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1396), 3 },
+                    { 8, 4, "VIIKomentari", new DateTime(2024, 6, 11, 15, 49, 40, 61, DateTimeKind.Utc).AddTicks(1397), 2 }
                 });
 
             migrationBuilder.CreateIndex(

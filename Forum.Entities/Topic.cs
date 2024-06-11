@@ -11,6 +11,7 @@ namespace Forum.Entities
 {
     public class Topic : BaseEntity
     {
+        /*
         
         [Required]
         [MaxLength(50)]
@@ -33,11 +34,48 @@ namespace Forum.Entities
             
         public ICollection<Comment> Comments { get; set; }
 
+       
+        
         public Topic()
         {
             Comments = new List<Comment>();
         }
+        
+        
+        */
+
+
+
 
         
+
+        [Required]
+        [MaxLength(50)]
+        public string TopicName { get; set; }
+
+
+        //[Required]
+        //[MaxLength(300)]
+        //public string Content { get; set; }
+
+        [Required]
+        public int NumberOfComments => Comments?.Count ?? 0;
+
+        
+
+        [Required]
+        public User Author { get; set; }
+
+        [Required]
+        public int AuthorId { get; set; }
+
+        [Required]
+        public State State { get; set; } = State.Pending;
+
+        [Required]
+        public Status Status { get; set; } = Status.Active;
+
+        public ICollection<Comment> Comments { get; set; }
+
     }
 }

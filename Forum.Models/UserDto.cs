@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace Forum.Models
 {
-    public class User : IdentityUser
+    public class UserDto
     {
         public int Id { get; set; }
-        public string Username { get; set; }
+        public string UserName { get; set; }
         public string Email { get; set; }
-        public string PasswordHash { get; set; }
         public bool IsBanned { get; set; }
-        public bool IsAuthorized { get; set; }
-        public bool IsAdmin {  get; set; }
-        
+        public bool IsAdmin { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }
