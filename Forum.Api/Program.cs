@@ -3,6 +3,10 @@ using Forum.Api;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddDatabaseContext();
+builder.ConfigureJwtOptions();
+builder.AddIdentity();
+builder.AddAuthentication();
+//builder.AddHttpContextAccssor();
 builder.AddControllers();
 builder.AddEndpointsApiExplorer();
 builder.AddSwagger();
@@ -19,6 +23,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

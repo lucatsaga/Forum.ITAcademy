@@ -1,6 +1,7 @@
 ﻿using Forum.Contracts;
 using Forum.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 using static Forum.Models.CommentForUpdatingDto;
 
 namespace Forum.Api.Controllers
@@ -10,17 +11,36 @@ namespace Forum.Api.Controllers
     public class CommentController : Controller
     {
         private readonly ICommentService _commentService;
+        private ApiResponse _response;
 
         public CommentController(ICommentService commentService)
         {
             _commentService = commentService;
+            _response = new();
+           
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllComments()
         {
-            var comments = await _commentService.GetAllCommentsAsync();
-            return Ok(comments);
+           
+
+            try
+            {
+                var comments = await _commentService.GetAllCommentsAsync();
+                _response.Result = null;
+                _response.IsSucess = true;
+                _response.StatusCode = Convert.ToInt32(HttpStatusCode.OK);
+                _response.Message = "Request Completed Successfully";
+            }
+            catch (Exception ex)
+            {
+                _response.Result = null;
+                _response.IsSucess = false;
+                _response.StatusCode = Convert.ToInt32(HttpStatusCode.NotFound);
+                _response.Message = ex.Message;
+            }
+            return StatusCode(_response.StatusCode, _response);
         }
 
         [HttpGet("{id}")]

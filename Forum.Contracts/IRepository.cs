@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Forum.Contracts
 {
-    public interface IRepository<TEntity> where TEntity : BaseEntity
+    public interface IRepository<TEntity> 
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();

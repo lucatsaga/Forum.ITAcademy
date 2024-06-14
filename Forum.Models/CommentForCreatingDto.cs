@@ -18,6 +18,6 @@ namespace Forum.Models
         public int TopicId { get; set; }
 
         [Required]
-        public int AuthorId { get; set; }
+        public string CommentAuthorId { get; set; }
     }
 }

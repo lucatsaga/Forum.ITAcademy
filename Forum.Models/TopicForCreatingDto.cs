@@ -15,7 +15,7 @@ namespace Forum.Models
             public string TopicName { get; set; }
 
             [Required]
-            public int AuthorId { get; set; }
+            public string TopicAuthorId { get; set; }
         
     }
 }

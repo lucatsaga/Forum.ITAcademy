@@ -54,10 +54,12 @@ namespace Forum.Service.Implementations
             return _mapper.Map<CommentDto>(comment);
         }
 
+        /*
         public async Task<IEnumerable<Comment>> GetCommentsForTopicAsync(int topicId)
         {
             return await _commentRepository.GetCommentsForTopicAsync(topicId);
         }
+        */
 
         public async Task UpdateCommentAsync(CommentForUpdatingDto model)
         {

@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace Forum.Entities
 {
-    public class Topic : BaseEntity
+    public class Topic
     {
         /*
         
@@ -46,8 +46,11 @@ namespace Forum.Entities
 
 
 
+        [Key]
+        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int TopicId { get; set; }
 
-        
 
         [Required]
         [MaxLength(50)]
@@ -64,10 +67,13 @@ namespace Forum.Entities
         
 
         [Required]
-        public User Author { get; set; }
+        public User TopicAuthor { get; set; }
 
         [Required]
-        public int AuthorId { get; set; }
+        public string TopicAuthorId { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime CreatedAt { get; set; }
 
         [Required]
         public State State { get; set; } = State.Pending;

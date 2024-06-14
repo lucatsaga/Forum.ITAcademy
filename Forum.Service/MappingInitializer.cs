@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Forum.Entities;
 using Forum.Models;
+using Forum.Models.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,14 @@ namespace Forum.Service
                 cfg.CreateMap<TopicForUpdatingDto, Topic>();
                 cfg.CreateMap<CommentForCreatingDto, Comment>();
                 cfg.CreateMap<CommentForUpdatingDto, Comment>();
+
+                cfg.CreateMap<UserDto, User>().ReverseMap();
+                cfg.CreateMap<RegistrationRequestDto, User>()
+                .ForMember(destination => destination.UserName, options => options.MapFrom(source => source.Email))
+                .ForMember(destination => destination.NormalizedUserName, options => options.MapFrom(source => source.Email.ToUpper()))
+                .ForMember(destination => destination.Email, options => options.MapFrom(source => source.Email))
+                .ForMember(destination => destination.NormalizedEmail, options => options.MapFrom(source => source.Email.ToUpper()));
+               
             });
 
             return config.CreateMapper();

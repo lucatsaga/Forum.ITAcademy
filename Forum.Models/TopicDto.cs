@@ -9,9 +9,9 @@ namespace Forum.Models
 {
     public class TopicDto
     {
-        public int Id { get; set; }
+        public int TopicId { get; set; }
         public string TopicName { get; set; }
-        public int AuthorId { get; set; }
+        public string TopicAuthorId { get; set; }
         //public UserDto Author { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }

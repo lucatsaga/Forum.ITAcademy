@@ -10,6 +10,7 @@ namespace Forum.Entities
 {
     public class BaseEntity
     {
+        /*
         [Key]
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -26,5 +27,6 @@ namespace Forum.Entities
             CreatedAt = DateTime.UtcNow;
             
         }
+        */
     }
 }

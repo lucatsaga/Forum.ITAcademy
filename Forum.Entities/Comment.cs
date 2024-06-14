@@ -36,17 +36,27 @@ namespace Forum.Entities
     }
     */
 
-    public class Comment : BaseEntity
+    public class Comment
     {
+
+        [Key]
+        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int CommentId { get; set; }
+
         
+
         [Required]
         [MaxLength(300)]
         public string Content { get; set; }
         
         [Required]
-        public User Author { get; set; }
+        public User CommentAuthor { get; set; }
         [Required]
-        public int AuthorId { get; set; }
+        public string CommentAuthorId { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime CreatedAt { get; set; }
         [Required]
         public Topic Topic { get; set; }
         [Required]

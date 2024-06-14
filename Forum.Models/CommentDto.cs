@@ -9,11 +9,11 @@ namespace Forum.Models
 {
     public class CommentDto
     {
-        public int Id { get; set; }
+        public int CommentId { get; set; }
         public string Content { get; set; }
         public int TopicId { get; set; }
        // public TopicDto Topic { get; set; }
-        public int AuthorId { get; set; }
+        public string CommentAuthorId { get; set; }
        // public UserDto Author { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
