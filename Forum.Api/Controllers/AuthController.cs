@@ -33,7 +33,7 @@ namespace Forum.Api.Controllers
             }
         }
 
-
+        /*
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromForm] LoginRequestDto model)
@@ -56,6 +56,35 @@ namespace Forum.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        */
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto model)
+        {
+            try
+            {
+                var loginResponse = await _authService.Login(model);
+
+                if (loginResponse == null)
+                {
+                    return BadRequest("Invalid login attempt.");
+                }
+
+                return Ok(loginResponse);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "Account is banned.")
+                {
+                    return Unauthorized("This account has been banned.");
+                }
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+
 
 
 
@@ -74,8 +103,36 @@ namespace Forum.Api.Controllers
             }
         }
 
+        [HttpPost("banuser")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> BanUser(string userId)
+        {
+            try
+            {
+                await _authService.BanUser(userId);
+                return Ok($"User {userId} banned successfully");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
 
+        [HttpPost("removeban")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> RemoveBan([FromForm] string email)
+        {
+            try
+            {
+                await _authService.RemoveBan(email);
+                return Ok("Ban removed successfully.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
 
     }

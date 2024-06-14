@@ -12,5 +12,7 @@ namespace Forum.Contracts
         Task Register(RegistrationRequestDto registrationRequestDto);
         Task RegisterAdmin(RegistrationRequestDto registrationRequestDto);
         Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto);
+        Task BanUser(string userId);
+        Task RemoveBan(string email);
     }
 }

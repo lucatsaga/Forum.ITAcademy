@@ -36,6 +36,7 @@ namespace Forum.Service.Implementations
            // _httpContextAccessor = httpContextAccessor;
             _mapper = MappingInitializer.Initialize();
         }
+        /*
         public async Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto)
         {
             var user = await _context.Users.FirstOrDefaultAsync (x => x.UserName.ToLower() == loginRequestDto.UserName.ToLower());
@@ -67,6 +68,46 @@ namespace Forum.Service.Implementations
             return result;
 
         }
+        */
+
+
+        public async Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserName.ToLower() == loginRequestDto.UserName.ToLower());
+
+            if (user == null)
+            {
+                return null;
+            }
+
+            if (user.LockoutEnabled)
+            {
+                throw new Exception("Account is banned.");
+            }
+
+            bool isValid = await _userManager.CheckPasswordAsync(user, loginRequestDto.Password);
+            if (isValid == false)
+            {
+                return null;
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var token = _jwtTokenGenerator.GenerateToken(user, roles);
+
+            UserDto userDto = new()
+            {
+                Id = user.Id,
+                Email = user.Email
+            };
+
+            LoginResponseDto result = new()
+            {
+                User = userDto,
+                Token = token
+            };
+            return result;
+        }
+
 
         public async Task Register(RegistrationRequestDto registrationRequestDto)
         {
@@ -158,30 +199,62 @@ namespace Forum.Service.Implementations
             }
         }
 
-       /* private string GetAuthenticatedUserId()
+
+        public async Task BanUser(string userId)
         {
-            if (_httpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
             {
-                return _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                throw new Exception("User not found");
             }
-            else
+
+            user.LockoutEnabled = true;
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded)
             {
-                throw new UnauthorizedAccessException("Can't get credentials of Unauthorized user");
+                throw new Exception("Failed to ban user");
             }
         }
 
-      //  private string GetAuthenticatedUserRole()
+        /* private string GetAuthenticatedUserId()
+         {
+             if (_httpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+             {
+                 return _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+             }
+             else
+             {
+                 throw new UnauthorizedAccessException("Can't get credentials of Unauthorized user");
+             }
+         }
+
+       //  private string GetAuthenticatedUserRole()
+         {
+             if (_httpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+             {
+                 return _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Role);
+             }
+             else
+             {
+                 throw new UnauthorizedAccessException("Can't get credentials of Unauthorized user");
+             }
+         }
+        */
+
+
+        public async Task RemoveBan(string email)
         {
-            if (_httpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email.ToLower() == email.ToLower());
+            if (user == null)
             {
-                return _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Role);
+                throw new Exception("User not found.");
             }
-            else
-            {
-                throw new UnauthorizedAccessException("Can't get credentials of Unauthorized user");
-            }
+
+            user.LockoutEnabled = false;
+            user.LockoutEnd = null;
+            await _context.SaveChangesAsync();
         }
-       */
 
     }
 }

@@ -28,7 +28,7 @@ namespace Forum.Api.Controllers
             try
             {
                 var comments = await _commentService.GetAllCommentsAsync();
-                _response.Result = null;
+                _response.Result = comments;
                 _response.IsSucess = true;
                 _response.StatusCode = Convert.ToInt32(HttpStatusCode.OK);
                 _response.Message = "Request Completed Successfully";
@@ -76,6 +76,7 @@ namespace Forum.Api.Controllers
                
                 await _commentService.UpdateCommentAsync(commentDto);
                 return Ok("Comment updated successfully");
+                
             }
             catch (Exception ex)
             {

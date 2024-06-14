@@ -4,6 +4,7 @@ using Forum.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Forum.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240614142810_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,7 +62,7 @@ namespace Forum.Data.Migrations
                             CommentId = 1,
                             CommentAuthorId = "FC5DA2E8-EECC-4AC9-99F6-F3937B1EF537",
                             Content = "Ikomentari",
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(3389),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9847),
                             TopicId = 1
                         },
                         new
@@ -67,7 +70,7 @@ namespace Forum.Data.Migrations
                             CommentId = 2,
                             CommentAuthorId = "FC5DA2E8-EECC-4AC9-99F6-F3937B1EF537",
                             Content = "IIkomentari",
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(3392),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9849),
                             TopicId = 1
                         },
                         new
@@ -75,7 +78,7 @@ namespace Forum.Data.Migrations
                             CommentId = 3,
                             CommentAuthorId = "FC5DA2E8-EECC-4AC9-99F6-F3937B1EF537",
                             Content = "IIIkomentari",
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(3394),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9851),
                             TopicId = 2
                         },
                         new
@@ -83,7 +86,7 @@ namespace Forum.Data.Migrations
                             CommentId = 4,
                             CommentAuthorId = "FC5DA2E8-EECC-4AC9-99F6-F3937B1EF537",
                             Content = "IVkomentari",
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(3395),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9852),
                             TopicId = 1
                         },
                         new
@@ -91,7 +94,7 @@ namespace Forum.Data.Migrations
                             CommentId = 5,
                             CommentAuthorId = "FC5DA2E8-EECC-4AC9-99F6-F3937B1EF537",
                             Content = "Vkomentari",
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(3406),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9859),
                             TopicId = 3
                         },
                         new
@@ -99,7 +102,7 @@ namespace Forum.Data.Migrations
                             CommentId = 6,
                             CommentAuthorId = "FC5DA2E8-EECC-4AC9-99F6-F3937B1EF537",
                             Content = "VIKomentari",
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(3408),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9860),
                             TopicId = 3
                         },
                         new
@@ -107,7 +110,7 @@ namespace Forum.Data.Migrations
                             CommentId = 7,
                             CommentAuthorId = "FC5DA2E8-EECC-4AC9-99F6-F3937B1EF537",
                             Content = "VIIKomentari",
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(3410),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9862),
                             TopicId = 3
                         },
                         new
@@ -115,7 +118,7 @@ namespace Forum.Data.Migrations
                             CommentId = 8,
                             CommentAuthorId = "FC5DA2E8-EECC-4AC9-99F6-F3937B1EF537",
                             Content = "VIIKomentari",
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(3412),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9863),
                             TopicId = 2
                         });
                 });
@@ -158,7 +161,7 @@ namespace Forum.Data.Migrations
                         new
                         {
                             TopicId = 1,
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(2858),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9753),
                             State = "Pending",
                             Status = "Active",
                             TopicAuthorId = "20BA9755-D9CE-45AE-97D4-CB5AAA5D5956",
@@ -167,7 +170,7 @@ namespace Forum.Data.Migrations
                         new
                         {
                             TopicId = 2,
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(2864),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9758),
                             State = "Pending",
                             Status = "Active",
                             TopicAuthorId = "20BA9755-D9CE-45AE-97D4-CB5AAA5D5956",
@@ -176,7 +179,7 @@ namespace Forum.Data.Migrations
                         new
                         {
                             TopicId = 3,
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(2866),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9759),
                             State = "Pending",
                             Status = "Active",
                             TopicAuthorId = "20BA9755-D9CE-45AE-97D4-CB5AAA5D5956",
@@ -185,7 +188,7 @@ namespace Forum.Data.Migrations
                         new
                         {
                             TopicId = 4,
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(2867),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9761),
                             State = "Pending",
                             Status = "Active",
                             TopicAuthorId = "FC5DA2E8-EACC-4AC9-99F6-F3937B1EF538",
@@ -194,7 +197,7 @@ namespace Forum.Data.Migrations
                         new
                         {
                             TopicId = 5,
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(2869),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9763),
                             State = "Pending",
                             Status = "Active",
                             TopicAuthorId = "FC5DA2E8-EACC-4AC9-99F6-F3937B1EF538",
@@ -203,7 +206,7 @@ namespace Forum.Data.Migrations
                         new
                         {
                             TopicId = 6,
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(2871),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9764),
                             State = "Pending",
                             Status = "Active",
                             TopicAuthorId = "FC5DA2E8-EACC-4AC9-99F6-F3937B1EF538",
@@ -212,7 +215,7 @@ namespace Forum.Data.Migrations
                         new
                         {
                             TopicId = 7,
-                            CreatedAt = new DateTime(2024, 6, 14, 15, 56, 24, 817, DateTimeKind.Utc).AddTicks(2873),
+                            CreatedAt = new DateTime(2024, 6, 14, 14, 28, 9, 874, DateTimeKind.Utc).AddTicks(9766),
                             State = "Pending",
                             Status = "Active",
                             TopicAuthorId = "FC5DA2E8-EACC-4AC9-99F6-F3937B1EF538",
@@ -289,15 +292,15 @@ namespace Forum.Data.Migrations
                         {
                             Id = "20BA9755-D9CE-45AE-97D4-CB5AAA5D5956",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "66cf88b1-38a5-4671-bda2-4900b847a0b3",
+                            ConcurrencyStamp = "c7e5c63c-392f-4ef5-8337-cfcc8bafd0a4",
                             Email = "User1@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER1@GMAIL.com",
                             NormalizedUserName = "USER1",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOGYHyyMxg07UVq1i3NbRz8PikOlFM7MZMeQWw2NhEcownOyE7fVN3JR+objoxnVFw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE1+w5P0ZKpL8GaT1XH0EErWfkjKU5SNAHUPdCaCAelZUBf83cVfqzUl8o48HNvtJw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5b2c0b3d-fc69-4ee0-955a-63c387b72d3d",
+                            SecurityStamp = "af61310c-e54a-40f1-bcb3-f17a149a4659",
                             TwoFactorEnabled = false,
                             UserName = "User1"
                         },
@@ -305,15 +308,15 @@ namespace Forum.Data.Migrations
                         {
                             Id = "FC5DA2E8-EECC-4AC9-99F6-F3937B1EF537",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0b245042-4ab8-45f1-8934-5e2ee1cc2875",
+                            ConcurrencyStamp = "ad78f04a-6537-47b3-879e-b681f354f22e",
                             Email = "User2@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER2@GMAIL.com",
                             NormalizedUserName = "USER2",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMva+SX5eT2U+UiZ4n6+n/uLPToJHFObD5EFAVtNmFwifz5DkcBe0BWw/Nv0iCEIXA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAh93t+LEGxAPxGGTVAkIWeJg5gf3VQDAI94WztKq7nDKBOfelLKc0ENSpWo9AsKfQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c0772ab7-487c-4ef2-b596-7bca2b1c3f93",
+                            SecurityStamp = "45f5818c-d3c5-4a91-aaec-08790169e919",
                             TwoFactorEnabled = false,
                             UserName = "User2"
                         },
@@ -321,15 +324,15 @@ namespace Forum.Data.Migrations
                         {
                             Id = "FC2DA2E8-EECC-4AC9-99F6-F3937B1EF538",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f25afcca-540d-4aa4-a5fc-2fd9aa66641f",
+                            ConcurrencyStamp = "2e52ce74-62fd-46e1-861e-6fb9931aba10",
                             Email = "User3@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER3@GMAIL.com",
                             NormalizedUserName = "USER3",
-                            PasswordHash = "AQAAAAIAAYagAAAAECaO7+TnMjeQyarvn9L/6DAiGdwerpctdD+HFJti7jneyt4Afo7ZIOJ9aSKOhG69WQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC+cU+wT/4W9P74BmKatNU8IgZcA9t9shr7Gq1eDnhOJMJ3AVi9mySmF8sO2uu5Xtw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "624b3edc-9b24-4ff8-8112-a5a286aa7d70",
+                            SecurityStamp = "a5532302-9f8e-404b-b068-1cc8b023aae8",
                             TwoFactorEnabled = false,
                             UserName = "User3"
                         },
@@ -337,15 +340,15 @@ namespace Forum.Data.Migrations
                         {
                             Id = "FC3DA2E8-EECC-4AC9-99F6-F4937B1EF538",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "00debc85-b9c2-4f03-9283-70b725c16216",
+                            ConcurrencyStamp = "5420f687-a603-4c70-8774-6793932be0e1",
                             Email = "User4@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER4@GMAIL.com",
                             NormalizedUserName = "USER4",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJmeQtWblV5EQW0VX8CHocJqxSNIZzOlkoEPWATKiqp1Zu3c2AEsNWjsAtmx288MWg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKjW7gd/c3eZfHhRfBfY0ArzkwdYOh1QABE6tnV5aNrYXUQTQseaVxKI+Td1kCfdsQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6ad3034a-4c5b-4210-92b6-8b146874d65e",
+                            SecurityStamp = "6114d6e7-7133-4fd4-ac78-20bd7bf846a0",
                             TwoFactorEnabled = false,
                             UserName = "User4"
                         },
@@ -353,15 +356,15 @@ namespace Forum.Data.Migrations
                         {
                             Id = "FC4DA2E8-EECC-5AC9-99F6-F3937B1EF538",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2a895800-34ad-4390-9ea8-78e159e005f3",
+                            ConcurrencyStamp = "5b57d09a-f0cb-456c-b371-45a51c4d8e79",
                             Email = "User5@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER5@GMAIL.com",
                             NormalizedUserName = "USER5",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDcI7vYmYbethKMEazJc1eXWLqQShUMIWHne6wMIVoklwpLrNnM/ZaGyMwlcOAWj1A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA0P6eOBtWxY/i/Jihy89YUwEfqMiY4pEN6hnx2xj4CJphfXXs4BYmMXVTwMPomxig==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d2bcefa0-b2f1-4b47-999f-44ad03661f07",
+                            SecurityStamp = "8104ab6f-3f1a-49d9-937c-5e7ba4f1e546",
                             TwoFactorEnabled = false,
                             UserName = "User5"
                         },
@@ -369,15 +372,15 @@ namespace Forum.Data.Migrations
                         {
                             Id = "FC5DA2E8-EACC-4AC9-99F6-F3937B1EF538",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "49114a73-63bb-4de1-9f41-22bdcb1e6a60",
+                            ConcurrencyStamp = "1f322758-228c-4e0c-b37f-e652c5db9d44",
                             Email = "User6@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER6@GMAIL.com",
                             NormalizedUserName = "USER6",
-                            PasswordHash = "AQAAAAIAAYagAAAAED2EXd0XsOeu0ztIdRbZtwGF9oL4tjB//XCJstjPjHqBynuuOLtNXwVYQ1gVM0DciQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE0X83RYl0fS/vtXbZ+GF/DhxxSgoGRLf7jRpQC+CgOtbLI6sOM+TSmmUB7i3zSLCQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c5ed46a2-bed5-4492-95ca-4f3d4b8ebe97",
+                            SecurityStamp = "b5b4ac0c-d688-48f1-bf8d-e8cd151deeed",
                             TwoFactorEnabled = false,
                             UserName = "User6"
                         },
@@ -385,15 +388,15 @@ namespace Forum.Data.Migrations
                         {
                             Id = "FC6DB2E8-EECC-4AC9-99F6-F3937B1EF538",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "afcbb5d8-86e8-4810-af4c-9c1bec5fb2a6",
+                            ConcurrencyStamp = "569a81f7-60a0-4d82-bced-e5f11ea81194",
                             Email = "User7@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER7@GMAIL.com",
                             NormalizedUserName = "USER7",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEZNE99L3B+emsIRMu7+c1ZRIcA/PLVL7BPa3tgt2UrzVwKG6G8pMzMnryUk83GHdw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHzcGij/Vb8YQ82rmYciOfBb7uLxJ5d6QJll3IW/GWkaU6EkcI0ug/3ILDH34dI74w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "07ebc7f6-5a02-441a-b28d-dc566e1b01da",
+                            SecurityStamp = "9ceef337-dc96-43ca-8745-203891dc66b8",
                             TwoFactorEnabled = false,
                             UserName = "User7"
                         },
@@ -401,33 +404,17 @@ namespace Forum.Data.Migrations
                         {
                             Id = "FC7DC2E8-EECC-4AC9-99F6-F3937B1EF538",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4011e519-217b-492b-bea4-cb1101feb0b6",
+                            ConcurrencyStamp = "8be7ed8c-265c-42ec-ba44-4d95acf88b31",
                             Email = "User8@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER8@GMAIL.com",
                             NormalizedUserName = "USER8",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPN3lP4fa+pm6Q9MAQz/RmF5yBEcgiXXD4g7qm9j2AVUFM6Qcd+dzl+TZSAAVOVepA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIyA5Nf4OS4ezZLFqgAiiyr+y2c862HjRpad652tWeBq6pyZ5m+XiyyyEyT9j9YjNQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9aed5e3f-9e78-4e03-a139-cbbf7e283d0b",
+                            SecurityStamp = "b267c7f0-5581-49ba-8baf-339a8defb7cb",
                             TwoFactorEnabled = false,
                             UserName = "User8"
-                        },
-                        new
-                        {
-                            Id = "FT7DC2E8-EECC-4AC9-99F6-F3937B1EF538",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "14f486b8-fe4e-4e6e-b905-67a9a5880354",
-                            Email = "adminreal@gmail.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMINREAL@gmail.com",
-                            NormalizedUserName = "ADMINREAL@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBISG1Jm3caZe2GQ4Kk3IZpBZAfMOgDfyJiP1iW/gwREgNFnX+tiRx1WiQAxh//RNQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "8b017bcd-5c4a-4e6f-b58f-b5e29290db89",
-                            TwoFactorEnabled = false,
-                            UserName = "AdminReal@gmail.com"
                         });
                 });
 
@@ -568,11 +555,6 @@ namespace Forum.Data.Migrations
                         {
                             UserId = "FC5DA2E8-EECC-4AC9-99F6-F3937B1EF537",
                             RoleId = "D99CF9F8-F4E8-478F-BE40-5418B5D3EF8D"
-                        },
-                        new
-                        {
-                            UserId = "FT7DC2E8-EECC-4AC9-99F6-F3937B1EF538",
-                            RoleId = "D7AE250D-E7D5-46AB-92B5-94E96BECDAE6"
                         });
                 });
 
